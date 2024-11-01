@@ -1,9 +1,13 @@
-import { Button } from "@/components/ui/button";
+// import LocationModal from "@/components/LocationModalOld";
+import Home from "@/containers/Home/Home";
 
-export default function page() {
+const page = () => {
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <>
+      <Home />
+      {/* <LocationModal /> */}
+    </>
   );
-}
+};
+
+export default page;
