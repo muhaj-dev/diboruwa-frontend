@@ -43,9 +43,9 @@ const Navbar = () => {
             alt="logo"
             className="object-contain"
           />
-          <span className="absolute top-[-10px] left-[70%] bg-primary text-white rounded-2xl px-2 py-1 text-sm">
+          <div className="absolute top-[-10px] left-[70%] bg-[#27a124] text-white rounded-2xl px-2 py-1 text-sm">
             beta
-          </span>
+          </div>
         </Link>
       </div>
 
@@ -131,20 +131,20 @@ const Navbar = () => {
         <Link
           href="https://admin.diboruwa.com/sign-in"
           target="_blank"
-          className="bg-primary text-white px-4 py-2 rounded-md hidden md:inline"
+          className="bg-[#27a124] text-white px-4 py-2 rounded-md hidden md:inline"
         >
           Partner with us
         </Link>
         <div className="flex items-center gap-2">
-          <ImLocation className="text-primary w-7 h-7" />
+          <ImLocation className="text-[#EF5A5A] w-7 h-7" />
           <p className="text-xs text-black">Tanke, Ilorin</p>
         </div>
         <div className="relative flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full">
-          <span className="absolute top-0 right-0 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center">
+          <span className="absolute top-0 right-0 w-5 h-5 bg-[#27a124] text-white text-xs rounded-full flex items-center justify-center">
             0
           </span>
           <Link href="/cart">
-            <FaBagShopping className="text-primary w-6 h-6" />
+            <FaBagShopping className="text-[#27a124] w-6 h-6" />
           </Link>
         </div>
       </ul>
