@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { LiaAngleRightSolid } from "react-icons/lia";
 import { IoPersonOutline } from "react-icons/io5";
@@ -18,189 +17,12 @@ interface MenuItem {
   href: string;
 }
 
-interface ProfileSidebarContainerProps {
-  isVisible: boolean;
-}
-
-const ProfileSidebarContainer = styled.div<ProfileSidebarContainerProps>`
-  width: 30vw;
-  height: 100%;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #fff;
-
-  @media (max-width: 868px) {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    width: 97%;
-    height: 95%;
-    position: absolute;
-    top: 2rem;
-    z-index: 2;
-    transition: transform 0.3s ease-in-out;
-    transform: ${({ isVisible }) =>
-      isVisible ? "translateX(2%)" : "translateX(-200%)"};
-  }
-`;
-
-const MenuIcon = styled(HiMenuAlt4)`
-  display: none;
-  @media (max-width: 768px) {
-    display: flex;
-    width: 28px;
-    height: 28px;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 4px;
-    left: 1.5rem;
-    cursor: pointer;
-  }
-`;
-const CancelIcon = styled(MdRestaurantMenu)`
-  display: none;
-  @media (max-width: 768px) {
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    position: absolute;
-    right: 1rem;
-  }
-`;
-
-const ProfileContainer = styled.div``;
-
-const ProfileSidebarProfileLink = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 1rem 1.4rem 0.5rem;
-`;
-
-const ProfileSidebarPics = styled.div`
-  width: 49.465px;
-  height: 49.465px;
-  flex-shrink: 0;
-  background: #f4f4f4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
-`;
-
-const ProfileIcon = styled(IoPersonOutline)`
-  font-size: 24px;
-  color: #27a124;
-`;
-
-const ProfileSidebarName = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.7rem;
-`;
-
-const ProfileName = styled.p`
-  color: #2a2a2a;
-  font-family: Poppins, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: normal;
-`;
-
-const ProfileEmail = styled.p`
-  color: #2a2a2a;
-  font-family: Poppins, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: normal;
-`;
-
-const SidebarLine = styled.hr`
-  width: 88%;
-  height: 1px;
-  background: #d2d2d2;
-  margin-inline: auto;
-`;
-
-const ProfileSidebarSidemenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 92%;
-  gap: 20px;
-  margin-inline: auto;
-`;
-
-const ProfileSidebarList = styled.ul`
-  display: flex;
-  padding: 10px;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  margin-inline: auto;
-`;
-
-const ProfileSidebarItem = styled.li<{ active: boolean }>`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.4rem;
-  border-radius: 8px;
-  margin-inline: auto;
-  background-color: ${(props) =>
-    props.active ? "rgba(233, 233, 233, 0.25)" : "transparent"};
-  &:hover {
-    background: rgba(233, 233, 233, 0.25);
-  }
-`;
-
-const ProfileSidebarLink = styled(Link)<{ active: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: ${(props) => (props.active ? "#27a124" : "#2a2a2a")};
-`;
-
-const ProfileSidebarLeftIcon = styled.div`
-  display: flex;
-  width: 24px;
-  height: 24px;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ProfileSidebarLinkName = styled.p<{ active: boolean }>`
-  color: ${(props) => (props.active ? "#27a124" : "#2a2a2a")};
-  font-family: Poppins, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-`;
-
-const ProfileSidebarRightIcon = styled(LiaAngleRightSolid)<{ active: boolean }>`
-  display: flex;
-  width: 20px;
-  height: 20px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  color: ${(props) => (props.active ? "#27a124" : "#2a2a2a")};
-  cursor: pointer;
-`;
-
 export const ProfileSidebar: React.FC = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const [activeItem, setActiveItem] = useState<string>("Profile Settings");
 
   const profileInfo = {
-    icon: <ProfileIcon />,
+    icon: <IoPersonOutline className="text-2xl text-green-700" />,
     name: "Kelivin Chikezie",
     email: "chikeziekelivin@gmial.com",
     href: "/profile",
@@ -212,25 +34,13 @@ export const ProfileSidebar: React.FC = () => {
       label: "Profile Settings",
       href: "/profile/profile-settings",
     },
-
-    {
-      icon: <HiOutlineCube />,
-      label: "Orders",
-      href: "/profile/or-ders",
-    },
-
-    {
-      icon: <IoIosHeartEmpty />,
-      label: "Favorite",
-      href: "/profile/favorite",
-    },
-
+    { icon: <HiOutlineCube />, label: "Orders", href: "/profile/orders" },
+    { icon: <IoIosHeartEmpty />, label: "Favorite", href: "/profile/favorite" },
     {
       icon: <LiaAwardSolid />,
       label: "Subscriptions",
       href: "/profile/subscriptions",
     },
-
     {
       icon: <HiOutlineEnvelope />,
       label: "Messages",
@@ -243,41 +53,72 @@ export const ProfileSidebar: React.FC = () => {
   };
 
   return (
-    <ProfileContainer>
-      <MenuIcon onClick={() => setSidebarVisible(!isSidebarVisible)} />
-      <ProfileSidebarContainer isVisible={isSidebarVisible}>
-        <CancelIcon onClick={() => setSidebarVisible(!isSidebarVisible)} />
-        <ProfileSidebarProfileLink href={profileInfo.href}>
-          <ProfileSidebarPics>{profileInfo.icon}</ProfileSidebarPics>
-          <ProfileSidebarName>
-            <ProfileName>{profileInfo.name}</ProfileName>
-            <ProfileEmail>{profileInfo.email}</ProfileEmail>
-          </ProfileSidebarName>
-        </ProfileSidebarProfileLink>
-        <SidebarLine />
-        <ProfileSidebarSidemenu>
-          <ProfileSidebarList>
+    <div className="relative">
+      <HiMenuAlt4
+        className="hidden md:block w-7 h-7 cursor-pointer absolute top-1 left-6"
+        onClick={() => setSidebarVisible(!isSidebarVisible)}
+      />
+      <div
+        className={`fixed md:relative bg-white rounded-lg shadow-md w-1/3 md:w-full h-full p-6 transition-transform duration-300 ${
+          isSidebarVisible
+            ? "transform translate-x-0"
+            : "transform -translate-x-full"
+        } md:transform-none`}
+      >
+        <MdRestaurantMenu
+          className="hidden md:block w-7 h-7 cursor-pointer absolute right-4"
+          onClick={() => setSidebarVisible(!isSidebarVisible)}
+        />
+        <Link href={profileInfo.href} className="flex items-center gap-2 mb-4">
+          <div className="bg-gray-200 w-12 h-12 rounded-full flex items-center justify-center">
+            {profileInfo.icon}
+          </div>
+          <div className="flex flex-col">
+            <p className="text-lg font-medium text-gray-800">
+              {profileInfo.name}
+            </p>
+            <p className="text-sm text-gray-800">{profileInfo.email}</p>
+          </div>
+        </Link>
+        <hr className="my-4 border-t border-gray-300" />
+        <div className="flex flex-col">
+          <ul className="space-y-4">
             {menuItems.map((item, index) => (
-              <ProfileSidebarItem
+              <li
                 key={index}
-                active={activeItem === item.label}
                 onClick={() => handleItemClick(item.label)}
+                className={`flex items-center justify-between p-2 rounded-lg cursor-pointer ${
+                  activeItem === item.label
+                    ? "bg-gray-200"
+                    : "hover:bg-gray-200"
+                }`}
               >
-                <ProfileSidebarLink
-                  href={item.href}
-                  active={activeItem === item.label}
-                >
-                  <ProfileSidebarLeftIcon>{item.icon}</ProfileSidebarLeftIcon>
-                  <ProfileSidebarLinkName active={activeItem === item.label}>
+                <Link href={item.href} className="flex items-center gap-2">
+                  <div className="flex items-center justify-center w-6 h-6">
+                    {item.icon}
+                  </div>
+                  <p
+                    className={`text-lg font-normal ${
+                      activeItem === item.label
+                        ? "text-green-700"
+                        : "text-gray-800"
+                    }`}
+                  >
                     {item.label}
-                  </ProfileSidebarLinkName>
-                </ProfileSidebarLink>
-                <ProfileSidebarRightIcon active={activeItem === item.label} />
-              </ProfileSidebarItem>
+                  </p>
+                </Link>
+                <LiaAngleRightSolid
+                  className={`w-5 h-5 ${
+                    activeItem === item.label
+                      ? "text-green-700"
+                      : "text-gray-800"
+                  }`}
+                />
+              </li>
             ))}
-          </ProfileSidebarList>
-        </ProfileSidebarSidemenu>
-      </ProfileSidebarContainer>
-    </ProfileContainer>
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };

@@ -1,71 +1,27 @@
 .cta_delivery_container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  border-radius: 8px;
-  background: #3e3e3e;
-  margin: 2rem 0 12.375rem;
-  padding: 0.5rem 1rem 0.5rem 4rem;
+  @apply flex justify-between items-center bg-[#3e3e3e] rounded-[8px] w-full my-8 py-2 px-16 md:px-4;
 }
 
 .inc_dec {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  color: #ffffff;
+  @apply flex justify-center items-center gap-12 md:gap-4 text-white;
 }
 
 .cta_delivery_icon {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
+  @apply flex-shrink-0 w-[28px] h-[28px] text-white;
 }
 
 .cta_delivery_num {
-  color: var(--White, #fefefe);
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  @apply text-[#fefefe] text-[20px] font-normal;
 }
 
 .cta_delivery_btns {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 81px;
+  @apply flex justify-end items-center gap-20 md:gap-8;
 }
 
 .cta_delivery_pick_up {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-  color: var(--White, #fefefe);
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  @apply border-none bg-transparent cursor-pointer outline-none text-[#fefefe] text-[20px] font-normal;
 }
 
 .cta_delivery_delivery {
-  display: flex;
-  height: 45px;
-  padding: 8px 64px 7px 66px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: none;
-  background: var(--Green1, #27a124);
-  color: var(--White, #fefefe);
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  @apply flex justify-center items-center h-[45px] px-[60px] rounded-[8px] border-none bg-[#27a124] text-[#fefefe] text-[20px] font-normal;
 }

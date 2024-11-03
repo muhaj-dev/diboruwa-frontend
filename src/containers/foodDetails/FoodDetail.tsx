@@ -4,6 +4,7 @@ import { BackButton } from "@/components/ui/BackButton/BackButton";
 import { DisplayFood } from "./containers/detailed-food-container/display-food/DisplayFood";
 import { CheckoutStore } from "./containers/checkout-store/CheckoutStore";
 import { SimilarMeal } from "./containers/similar-meal/SimilarMeal";
+import styles from "./food-details.module.css";
 
 export type IFoodDetailProps = {
   id: string;
@@ -21,29 +22,32 @@ const FoodDetail: React.FC<IFoodDetailProps> = ({ id }) => {
   }, []);
 
   return (
-    <section className="bg-[#f8f8f8]">
-      <div className="mx-auto mt-24 w-[95%] max-w-[1440px]">
-        <div className="mb-4">
+    <section className={styles.food_details_container}>
+      <div className={styles.food_details_frame}>
+        <div className={styles.Back_Btn}>
           <BackButton />
         </div>
         <button
           onClick={toggleVisibility}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+          className={styles.ToggleCheckout_btn}
         >
           {isVisible ? "Hide Checkout" : "Show Checkout"}
         </button>
-        <div className="relative flex justify-between gap-4 md:gap-0">
-          <div className="flex-[0.67] w-full md:flex-[1]">
+        <div className={styles.df_cs}>
+          <div className={styles.df_cs_food}>
             <DisplayFood />
             <SimilarMeal id={id} />
           </div>
           <div
-            className={`flex-[0.3] md:fixed md:w-[90%] md:max-w-[400px] md:top-24 md:right-0 md:h-auto ${
+            className={`${styles.df_cs_foodCheckOut} ${
               isVisible ? "block" : "hidden"
             }`}
           >
+            {/* Overlay background for desktop only */}
             <div
-              className="fixed inset-0 w-screen h-screen bg-transparent hidden md:block"
+              className={`fixed inset-0 w-screen h-screen bg-transparent ${
+                isVisible ? "md:block" : "hidden"
+              }`}
               onClick={toggleVisibility}
             />
             <CheckoutStore />

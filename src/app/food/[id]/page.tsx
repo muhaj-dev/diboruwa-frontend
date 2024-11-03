@@ -8,11 +8,13 @@ export const metadata = {
 export type IpageProps = {
   params: {
     id: string;
-
   };
 };
 
-const page: React.FC<IpageProps> = ({ params: { id } }) => {
+// Make the component async
+const page: React.FC<IpageProps> = async ({ params }) => {
+  const { id } = params;
+
   return (
     <div>
       <FoodDetail id={id} />
