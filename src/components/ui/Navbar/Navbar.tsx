@@ -49,7 +49,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <ul className="hidden md:flex gap-8 items-center">
+      <ul className="flex gap-8 items-center md:hidden">
         {routes.map((link, index) => (
           <li key={index}>
             {link?.subroutes ? (
@@ -117,7 +117,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      <ul className="hidden md:flex gap-8 items-center">
+      <ul className="flex gap-8 items-center md:hidden">
         <li>
           <Link href="/signup" className="text-primary">
             Register
@@ -131,7 +131,7 @@ const Navbar = () => {
         <Link
           href="https://admin.diboruwa.com/sign-in"
           target="_blank"
-          className="bg-[#27a124] text-white px-4 py-2 rounded-md hidden md:inline"
+          className="bg-[#27a124] text-white px-4 py-2 rounded-md md:hidden inline"
         >
           Partner with us
         </Link>
