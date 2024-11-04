@@ -53,13 +53,14 @@ const config: Config = {
         },
       },
       screens: {
-        "2xl": "1536px", // Default Tailwind breakpoints
-        xl: "1280px",
-        lg: "1024px",
-        md: "768px",
-        sm: "640px",
-        xs: "500px", // Custom breakpoint for 500px
-        xxs: "350px", // Custom breakpoint for 350px
+        // Max-width breakpoints for each screen size
+        "2xl": { max: "1536px" }, // Screens up to 1536px
+        xl: { max: "1280px" }, // Screens up to 1280px
+        lg: { max: "1024px" }, // Screens up to 1024px
+        md: { max: "768px" }, // Screens up to 768px
+        sm: { max: "640px" }, // Screens up to 640px
+        xs: { max: "500px" }, // Custom max-width breakpoint for 500px
+        xxs: { max: "350px" }, // Custom max-width breakpoint for 350px
       },
       borderRadius: {
         lg: "var(--radius)",

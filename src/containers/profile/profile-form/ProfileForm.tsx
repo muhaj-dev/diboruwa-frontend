@@ -5,20 +5,19 @@ import { BiEditAlt } from "react-icons/bi";
 import { FaAngleDown } from "react-icons/fa6";
 import { SecuritySetting } from "../security-setting/SecuritySetting";
 import { DeliverySetup } from "../delivery-setup/DeliverySetup";
+import styles from "./profile-form.module.css";
 
 export const ProfileForm = () => {
   const [activeTab, setActiveTab] = useState<number>(0); // Default to "Basic Information"
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
   return (
-    <div className="w-full p-8 pb-14 mx-auto flex flex-col flex-shrink-0 rounded-lg bg-white md:p-6 md:pt-4 sm:px-0 sm:bg-transparent">
-      <h3 className="text-[var(--Black-100,#2a2a2a)] font-poppins text-2xl font-light mb-4 hidden sm:block lg:text-xl md:text-lg">
-        Profile Settings
-      </h3>
+    <div className={styles.ProfileSettingContainer}>
+      <h3 className={styles.ProfileSettingTitle}>Profile Settings</h3>
 
-      <div className="flex p-2 rounded-lg bg-[#f9f9f9] justify-between text-[var(--Soft-black,#565656)] font-poppins text-base gap-4 sm:hidden lg:text-sm md:gap-2">
+      <div className={styles.ProfileSettingsBox}>
         <p
-          className={`flex justify-center items-center px-12 py-2 rounded-md cursor-pointer transition ${
+          className={`${styles.ProfileSettingsBoxTitle} ${
             activeTab === 0 ? "bg-white" : "hover:bg-white"
           }`}
           onClick={() => setActiveTab(0)}
@@ -26,7 +25,7 @@ export const ProfileForm = () => {
           Basic Information
         </p>
         <p
-          className={`flex justify-center items-center px-12 py-2 rounded-md cursor-pointer transition ${
+          className={`${styles.ProfileSettingsBoxTitle} ${
             activeTab === 1 ? "bg-white" : "hover:bg-white"
           }`}
           onClick={() => setActiveTab(1)}
@@ -34,8 +33,8 @@ export const ProfileForm = () => {
           Security Setting
         </p>
         <p
-          className={`flex justify-center items-center px-12 py-2 rounded-md cursor-pointer transition ${
-            activeTab === 2 ? "bg-white" : "hover:bg-white"
+          className={`${styles.ProfileSettingsBoxTitle} ${
+            activeTab === 2 ? "bg-[#fff]" : "hover:bg-[#fff]"
           }`}
           onClick={() => setActiveTab(2)}
         >
@@ -43,23 +42,23 @@ export const ProfileForm = () => {
         </p>
       </div>
 
-      <div className="relative flex items-center sm:hidden">
-        <BackButton className="mt-4 hidden sm:block" />
+      <div className={styles.MobileBackBtnSettings}>
+        <BackButton className={styles.MobileBackButton} />
         <div
-          className="relative flex w-full justify-center items-center gap-1 px-4 py-2 rounded-md bg-[#f6f6f6] cursor-pointer font-poppins text-base font-normal"
+          className={styles.MobileProfileSettingsBox}
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >
-          <span>
+          <div>
             {activeTab === 0
               ? "Basic Information"
               : activeTab === 1
               ? "Security Setting"
               : "Delivery Setup"}
-          </span>
+          </div>
           <FaAngleDown />
         </div>
         {isDropdownOpen && (
-          <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-lg py-3 z-10">
+          <div className={styles.DropdownMenu}>
             {["Basic Information", "Security Setting", "Delivery Setup"].map(
               (item, index) => (
                 <div
@@ -68,9 +67,9 @@ export const ProfileForm = () => {
                     setActiveTab(index);
                     setIsDropdownOpen(false);
                   }}
-                  className={`px-4 py-2 rounded-lg cursor-pointer ${
-                    activeTab === index ? "bg-gray-100" : ""
-                  } hover:bg-gray-100`}
+                  className={`${styles.DropdownMenuItem} ${
+                    activeTab === index ? "bg-[#f0f0f0]" : "bg-[#fff]"
+                  }`}
                 >
                   {item}
                 </div>
@@ -80,49 +79,106 @@ export const ProfileForm = () => {
         )}
       </div>
 
-      <form className="flex flex-col items-center gap-6 p-16 border border-[rgba(118,117,117,0.21)] rounded-md bg-[var(--white,#fefefe)] lg:border-none lg:p-0 lg:bg-transparent md:p-6 sm:w-full sm:border-none sm:bg-[rgba(252,252,252,0.38)]">
-        <div className="flex flex-col items-center gap-6 p-8 w-full rounded-md bg-[var(--white,#fefefe)] lg:w-full lg:p-0 lg:bg-transparent">
-          <div className="flex items-center gap-4 w-full sm:flex-col">
-            <div className="flex flex-col gap-2 w-full">
-              <label className="text-[var(--Soft-black,#565656)] font-poppins text-base font-normal">
+      <BackButton2 className={styles.BackButton} />
+
+      <form className={styles.FormContainer}>
+        <div className={styles.FormFrame}>
+          <div className={styles.FormFirstInput}>
+            <div className={styles.FormName}>
+              <label htmlFor="fullname" className={styles.FormLabel}>
                 Name
               </label>
-              <div className="relative w-full">
+              <div className={styles.FormNameIcon}>
                 <input
                   type="text"
-                  className="w-80 h-10 pl-3 rounded-md bg-[#f6f6f6] placeholder:text-[var(--Soft-black,#565656)] placeholder:font-poppins placeholder:text-base placeholder:font-normal focus:border-green-500 focus:outline-none md:w-60 sm:w-full sm:border-[0.5px] sm:border-gray-400"
-                  placeholder="Enter your name"
+                  className={styles.FormNameInput}
+                  name="fullname"
+                  placeholder="Kelvin Chikezie"
                 />
-                <BiEditAlt className="absolute right-4 text-[24px] text-[#565656] cursor-pointer" />
+                <BiEditAlt className={styles.EditIcon} />
+              </div>
+            </div>
+
+            <div className={styles.FormName}>
+              <label htmlFor="mobile" className={styles.FormLabel}>
+                Mobile
+              </label>
+              <div className={styles.FormNameIcon}>
+                <input
+                  type="text"
+                  className={styles.FormNameInput}
+                  name="mobile"
+                  placeholder="09034145971"
+                />
+                <BiEditAlt className={styles.EditIcon} />
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 w-full">
-            <label className="text-[var(--Soft-black,#565656)] font-poppins text-base font-normal">
-              Additional Information
-            </label>
-            <textarea
-              className="w-[41vw] h-32 p-2 rounded-md bg-[#f6f6f6] placeholder:text-[var(--Soft-black,#565656)] placeholder:font-poppins placeholder:text-base placeholder:font-normal focus:border-green-500 focus:outline-none resize-none md:w-80 sm:w-full sm:border-[0.5px] sm:border-gray-400"
-              placeholder="Enter additional information"
-            />
+          <div className={styles.FormFirstInput}>
+            <div className={styles.FormName}>
+              <label htmlFor="state" className={styles.FormLabel}>
+                State
+              </label>
+              <input
+                className={styles.FormNameInput}
+                list="states"
+                id="state"
+                name="state"
+              />
+              <datalist id="states">
+                <option value="Ilorin" />
+                <option value="Kano" />
+              </datalist>
+            </div>
+
+            <div className={styles.FormName}>
+              <label htmlFor="city" className={styles.FormLabel}>
+                City
+              </label>
+              <input
+                className={styles.FormNameInput}
+                list="cities"
+                id="city"
+                name="city"
+              />
+              <datalist id="cities">
+                <option value="Ilorin" />
+                <option value="Offa" />
+                <option value="Omu-Aran" />
+                <option value="Kano" />
+                <option value="Wudil" />
+                <option value="Gaya" />
+              </datalist>
+            </div>
           </div>
 
-          <button className="w-[41vw] flex justify-center items-center gap-2 p-2 rounded-md bg-[rgba(118,117,117,0.22)] text-white font-poppins text-base font-normal md:w-80 sm:w-full">
-            Submit
-          </button>
+          <div className={styles.FormTextareaBox}>
+            <label htmlFor="address" className={styles.FormTextareaLabel}>
+              Address
+            </label>
+            <textarea
+              className={styles.FormTextareaArea}
+              placeholder="24 Louk Street off 120 tonimas"
+              name="address"
+              rows={4}
+              cols={40}
+            ></textarea>
+          </div>
+
+          <button className={styles.FormSubmit}>Submit</button>
         </div>
       </form>
 
       <div
-        className={`bg-[rgba(252,252,252,0.38)] ${
+        className={`${styles.SecuritySettingContainer} ${
           activeTab === 1 ? "block" : "hidden"
         }`}
       >
         <SecuritySetting />
       </div>
       <div
-        className={`bg-[rgba(252,252,252,0.38)] ${
+        className={`${styles.DeliverySetupContainer} ${
           activeTab === 2 ? "block" : "hidden"
         }`}
       >
