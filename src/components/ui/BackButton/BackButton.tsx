@@ -30,9 +30,9 @@ export const BackButton: React.FC<BackButtonProps> = ({
       className={`border-none outline-none bg-transparent text-primary flex items-center gap-2 cursor-pointer py-5 ${className}`}
     >
       <ArrowLeftIcon className="w-4 h-4 flex-shrink-0" />
-      <span className="text-green-600 font-poppins text-base font-normal leading-normal">
+      <div className="text-green-600 font-poppins text-base font-normal leading-normal">
         Back
-      </span>
+      </div>
     </button>
   );
 };
@@ -57,9 +57,9 @@ export const BackButton2: React.FC<BackButtonProps> = ({
       className={`border-none outline-none bg-transparent text-primary flex items-center gap-2 cursor-pointer py-5 ${className}`}
     >
       <LiaAngleLeftSolid className="w-4 h-4 flex-shrink-0" />
-      <span className="text-green-600 font-poppins text-base font-normal leading-normal">
+      <div className="text-green-600 font-poppins text-base font-normal leading-normal">
         Back
-      </span>
+      </div>
     </button>
   );
 };

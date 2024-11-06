@@ -8,7 +8,6 @@ import { SlLocationPin } from "react-icons/sl";
 import { CiCalendar, CiClock2 } from "react-icons/ci";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { SlideInSub } from "./SlideInSub/SlideInSub";
-import { BackButton } from "@/components/ui/BackButton/BackButton";
 
 const MobileAboutRestaurant = () => {
   const [isSubOpen, setIsSubOpen] = useState<boolean>(false);
@@ -90,7 +89,7 @@ export const AboutRestaurant = () => {
     <>
       <div className={styles.AboutrestaurantContainer}>
         <div className={styles.restaurantFrame}>
-          <BackButton />
+        
           <div className={styles.CPImage}>
             <div className={styles.coverImage}>
               <img
