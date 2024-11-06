@@ -45,14 +45,22 @@ const ServiceMenu: FC<Routes> = ({ trigger, routes, toggle }) => {
             style={{
               position: "absolute",
               top: "110%",
-              right: 0,
+              left: "-3rem",
               borderRadius: "12px",
               background: "#fff",
               padding: "15px",
               width: "auto",
               minWidth: "200px",
               display: "grid",
-              gridGap: "10px",
+              gridGap: "1.3rem",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "none";
             }}
           >
             {routes &&
@@ -60,11 +68,7 @@ const ServiceMenu: FC<Routes> = ({ trigger, routes, toggle }) => {
                 <li key={index} onClick={toggle}>
                   <Link
                     className="link dropdown"
-                    href={
-                      link.name === "Sign Out"
-                        ? `/`
-                        : link?.path
-                    }
+                    href={link.name === "Sign Out" ? `/` : link?.path}
                     style={
                       link.name === "Sign Out"
                         ? {
