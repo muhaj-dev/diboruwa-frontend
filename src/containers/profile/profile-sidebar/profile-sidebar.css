@@ -1,17 +1,44 @@
+.ProfileContainer {
+  @apply relative md:absolute md:w-full md:h-full md:z-10;
+}
+
+/* .ProfileSidebarContainer {
+  @apply w-[30vw] h-full flex-shrink-0 rounded-[20px] bg-white transition-transform duration-300 ease-in-out md:w-full md:h-full md:pb-6 sm:pb-0 sm:top-2 sm:absolute sm:z-10;
+} */
+
 .ProfileSidebarContainer {
   @apply w-[30vw] h-full flex-shrink-0 rounded-[20px] bg-white transition-transform duration-300 ease-in-out md:w-full md:h-full md:pb-6 sm:pb-0 sm:top-2 sm:absolute sm:z-10;
+  transform: translateX(-100%); /* Sidebar hidden initially */
 }
+
+.ProfileSidebarContainer.translate-x-0 {
+  transform: translateX(0); /* Sidebar visible */
+}
+
+.ProfileSidebarContainer.translate-x-0 .CancelIcon {
+  display: block; /* Show cancel icon when sidebar is open */
+}
+
+.ProfileSidebarContainer.translate-x-0 .MenuIcon {
+  display: none; /* Hide menu icon when sidebar is open */
+}
+
+/* .MenuIcon {
+  @apply hidden md:flex w-7 h-7 absolute top-1 left-6 cursor-pointer;
+} */
 
 .MenuIcon {
-  @apply hidden sm:flex w-7 h-7 absolute top-1 left-6 cursor-pointer;
+  @apply hidden md:flex w-7 h-7 absolute top-[-2rem] left-6 cursor-pointer;
+  display: block;
 }
+
+/* .CancelIcon {
+  @apply hidden md:flex w-7 h-7 absolute right-4 cursor-pointer;
+} */
 
 .CancelIcon {
-  @apply hidden sm:flex w-7 h-7 absolute right-4 cursor-pointer;
-}
-
-.ProfileContainer {
-  @apply relative;
+  @apply hidden md:flex w-7 h-7 absolute top-[-2rem] left-6 cursor-pointer;
+  display: none;
 }
 
 .ProfileSidebarProfileLink {
@@ -60,7 +87,7 @@
 
 .ProfileSidebarLink {
   @apply flex justify-center items-center gap-2;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .ProfileSidebarLink.active {

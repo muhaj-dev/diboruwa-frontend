@@ -8,17 +8,20 @@ import { DeliverySetup } from "../delivery-setup/DeliverySetup";
 import styles from "./profile-form.module.css";
 
 export const ProfileForm = () => {
-  const [activeTab, setActiveTab] = useState<number>(0); // Default to "Basic Information"
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState(0); // Default to "Basic Information"
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <div className={styles.ProfileSettingContainer}>
       <h3 className={styles.ProfileSettingTitle}>Profile Settings</h3>
 
+      {/* Desktop Tab Buttons */}
       <div className={styles.ProfileSettingsBox}>
         <p
           className={`${styles.ProfileSettingsBoxTitle} ${
-            activeTab === 0 ? "bg-white" : "hover:bg-white"
+            activeTab === 0
+              ? styles.ProfileSettingsBoxTitleActive
+              : styles.ProfileSettingsBoxTitleHover
           }`}
           onClick={() => setActiveTab(0)}
         >
@@ -26,7 +29,9 @@ export const ProfileForm = () => {
         </p>
         <p
           className={`${styles.ProfileSettingsBoxTitle} ${
-            activeTab === 1 ? "bg-white" : "hover:bg-white"
+            activeTab === 1
+              ? styles.ProfileSettingsBoxTitleActive
+              : styles.ProfileSettingsBoxTitleHover
           }`}
           onClick={() => setActiveTab(1)}
         >
@@ -34,7 +39,9 @@ export const ProfileForm = () => {
         </p>
         <p
           className={`${styles.ProfileSettingsBoxTitle} ${
-            activeTab === 2 ? "bg-[#fff]" : "hover:bg-[#fff]"
+            activeTab === 2
+              ? styles.ProfileSettingsBoxTitleActive
+              : styles.ProfileSettingsBoxTitleHover
           }`}
           onClick={() => setActiveTab(2)}
         >
@@ -42,6 +49,7 @@ export const ProfileForm = () => {
         </p>
       </div>
 
+      {/* Mobile Dropdown Menu */}
       <div className={styles.MobileBackBtnSettings}>
         <BackButton className={styles.MobileBackButton} />
         <div
@@ -81,109 +89,108 @@ export const ProfileForm = () => {
 
       <BackButton2 className={styles.BackButton} />
 
-      <form className={styles.FormContainer}>
-        <div className={styles.FormFrame}>
-          <div className={styles.FormFirstInput}>
-            <div className={styles.FormName}>
-              <label htmlFor="fullname" className={styles.FormLabel}>
-                Name
-              </label>
-              <div className={styles.FormNameIcon}>
-                <input
-                  type="text"
-                  className={styles.FormNameInput}
-                  name="fullname"
-                  placeholder="Kelvin Chikezie"
-                />
-                <BiEditAlt className={styles.EditIcon} />
+      {/* Tab Content */}
+      {activeTab === 0 && (
+        <form className={styles.FormContainer}>
+          <div className={styles.FormFrame}>
+            {/* Form fields for "Basic Information" */}
+            <div className={styles.FormFirstInput}>
+              <div className={styles.FormName}>
+                <label htmlFor="fullname" className={styles.FormLabel}>
+                  Name
+                </label>
+                <div className={styles.FormNameIcon}>
+                  <input
+                    type="text"
+                    className={styles.FormNameInput}
+                    name="fullname"
+                    placeholder="Kelvin Chikezie"
+                  />
+                  <BiEditAlt className={styles.EditIcon} />
+                </div>
+              </div>
+
+              <div className={styles.FormName}>
+                <label htmlFor="mobile" className={styles.FormLabel}>
+                  Mobile
+                </label>
+                <div className={styles.FormNameIcon}>
+                  <input
+                    type="text"
+                    className={styles.FormNameInput}
+                    name="mobile"
+                    placeholder="09034145971"
+                  />
+                  <BiEditAlt className={styles.EditIcon} />
+                </div>
               </div>
             </div>
 
-            <div className={styles.FormName}>
-              <label htmlFor="mobile" className={styles.FormLabel}>
-                Mobile
-              </label>
-              <div className={styles.FormNameIcon}>
+            <div className={styles.FormFirstInput}>
+              <div className={styles.FormName}>
+                <label htmlFor="state" className={styles.FormLabel}>
+                  State
+                </label>
                 <input
-                  type="text"
                   className={styles.FormNameInput}
-                  name="mobile"
-                  placeholder="09034145971"
+                  list="states"
+                  id="state"
+                  name="state"
                 />
-                <BiEditAlt className={styles.EditIcon} />
+                <datalist id="states">
+                  <option value="Ilorin" />
+                  <option value="Kano" />
+                </datalist>
+              </div>
+
+              <div className={styles.FormName}>
+                <label htmlFor="city" className={styles.FormLabel}>
+                  City
+                </label>
+                <input
+                  className={styles.FormNameInput}
+                  list="cities"
+                  id="city"
+                  name="city"
+                />
+                <datalist id="cities">
+                  <option value="Ilorin" />
+                  <option value="Offa" />
+                  <option value="Omu-Aran" />
+                  <option value="Kano" />
+                  <option value="Wudil" />
+                  <option value="Gaya" />
+                </datalist>
               </div>
             </div>
-          </div>
 
-          <div className={styles.FormFirstInput}>
-            <div className={styles.FormName}>
-              <label htmlFor="state" className={styles.FormLabel}>
-                State
+            <div className={styles.FormTextareaBox}>
+              <label htmlFor="address" className={styles.FormTextareaLabel}>
+                Address
               </label>
-              <input
-                className={styles.FormNameInput}
-                list="states"
-                id="state"
-                name="state"
-              />
-              <datalist id="states">
-                <option value="Ilorin" />
-                <option value="Kano" />
-              </datalist>
+              <textarea
+                className={styles.FormTextareaArea}
+                placeholder="24 Louk Street off 120 tonimas"
+                name="address"
+                rows={4}
+                cols={40}
+              ></textarea>
             </div>
 
-            <div className={styles.FormName}>
-              <label htmlFor="city" className={styles.FormLabel}>
-                City
-              </label>
-              <input
-                className={styles.FormNameInput}
-                list="cities"
-                id="city"
-                name="city"
-              />
-              <datalist id="cities">
-                <option value="Ilorin" />
-                <option value="Offa" />
-                <option value="Omu-Aran" />
-                <option value="Kano" />
-                <option value="Wudil" />
-                <option value="Gaya" />
-              </datalist>
-            </div>
+            <button className={styles.FormSubmit}>Submit</button>
           </div>
-
-          <div className={styles.FormTextareaBox}>
-            <label htmlFor="address" className={styles.FormTextareaLabel}>
-              Address
-            </label>
-            <textarea
-              className={styles.FormTextareaArea}
-              placeholder="24 Louk Street off 120 tonimas"
-              name="address"
-              rows={4}
-              cols={40}
-            ></textarea>
-          </div>
-
-          <button className={styles.FormSubmit}>Submit</button>
+        </form>
+      )}
+      {activeTab === 1 && (
+        <div className={styles.SecuritySettingContainer}>
+          <SecuritySetting />
         </div>
-      </form>
-
-      <div
-        className={`${styles.SecuritySettingContainer} ${
-          activeTab === 1 ? "block" : "hidden"
-        }`}
-      >
-        <SecuritySetting />
-      </div>
-      <div
-        className={`${styles.DeliverySetupContainer} ${
-          activeTab === 2 ? "block" : "hidden"
-        }`}
-      >
-        <DeliverySetup />
-      </div>
+      )}
+      {activeTab === 2 && (
+        <div className={styles.DeliverySetupContainer}>
+          <DeliverySetup />
+        </div>
+      )}
     </div>
   );
 };

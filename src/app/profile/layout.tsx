@@ -1,5 +1,6 @@
 import { ProfileSidebar } from "@/containers/profile/profile-sidebar/ProfileSidebar";
 import "./profile.css";
+
 export const metadata = {
   title: "Profile",
   description: "User profile page with personalized content",

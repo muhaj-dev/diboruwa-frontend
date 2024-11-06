@@ -1,7 +1,10 @@
-"use client";
 import Profile from "@/containers/profile/Profile";
 import "../../containers/profile/profile.css";
 
+export const metadata = {
+  title: "Profile",
+  description: "User profile page with personalized content",
+};
 
 const page = () => {
   return (

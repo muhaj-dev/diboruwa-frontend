@@ -28,6 +28,13 @@
   width: 75%;
 }
 
+
+@media screen and (max-width: 1024px) {
+  .ProfileChildren {
+    width: 60%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .ProfileChildren {
     width: 100%;
