@@ -1,0 +1,29 @@
+.FoodTracker_Container {
+  width: 100%;
+}
+
+.Tracker_content {
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.Tracker_BT {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.TrackerBox_Icon {
+  width: 19.23px;
+  height: 19.994px;
+  flex-shrink: 0;
+  color: #27a124;
+}
+
+.Tracker_Line {
+  width: 2px;
+  height: 46px;
+  border-radius: 100px;
+  background: #27a124;
+}

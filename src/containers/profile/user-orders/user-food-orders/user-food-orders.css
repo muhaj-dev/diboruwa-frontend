@@ -5,7 +5,7 @@
 .user_foodOrders_container {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 100%;
   padding: 1.5rem;
   gap: 1.5rem;
   background: #fefefe;
@@ -223,6 +223,26 @@ svg.ratingStar_icon {
   margin: 0 auto;
 }
 
+.viewMore_container {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  background: var(--Green1, #27a124);
+  color: #fefefe;
+  cursor: pointer;
+}
+
+.viewMore_icon {
+  transition: transform 0.3s ease;
+}
+
+.viewMore_icon.rotated {
+  transform: rotate(90deg);
+}
+
 /* @media screen and (max-width: 1238px){
 .user_order_container{
   width: 88%;
@@ -271,7 +291,7 @@ svg.ratingStar_icon {
     width: 100%;
   }
 
-  .viewMore_container{
+  .viewMore_container {
     display: none;
   }
 }

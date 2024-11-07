@@ -73,6 +73,7 @@
   text-decoration: none;
   background-color: var(--light2);
   font-family: "Poppins", sans-serif !important;
+  /* border: 3px solid violet; */
 }
 p {
   text-align: justify;
