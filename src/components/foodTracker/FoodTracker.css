@@ -1,4 +1,4 @@
-.FoodTracker_Container {
+.FoodTracker_Container { 
   width: 100%;
   margin-top: 1rem;
 }
@@ -21,13 +21,32 @@
   width: 19.23px;
   height: 19.994px;
   flex-shrink: 0;
-  color: #27a124;
 }
 
 .Tracker_Line {
   width: 2px;
   height: 46px;
   border-radius: 100px;
-  background: #27a124;
   margin: 0.8rem auto;
+}
+
+.active {
+  color: #27a124;
+}
+
+.isLineActive{
+  background: #27a124;
+}
+
+.inactive {
+  color: #a3c1a3;
+}
+
+.isLineInactive{
+  background: #a3c1a3;
+}
+
+.Trackers_Text {
+  font-size: 0.9rem;
+  color: #333;
 }

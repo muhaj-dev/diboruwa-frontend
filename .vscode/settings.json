@@ -10,12 +10,15 @@
     "Ipage",
     "ondisplay",
     "onselected",
+    "ownercontent",
+    "quatity",
     "remender",
     "restcontent",
     "schdelivery",
     "Sidemenu",
     "signin",
     "sublinks",
-    "subroutes"
+    "subroutes",
+    "timm"
   ]
 }
